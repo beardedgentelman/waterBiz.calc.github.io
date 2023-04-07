@@ -12,6 +12,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Water Biz</title>
     <style>
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
       body {
         font-family: "Poppins", sans-serif;
         color: #272727;
@@ -36,7 +47,7 @@
     </style>
   </head>
   <body>
-    <div class="mx-auto h-[100svh] max-w-2xl overflow-hidden">
+    <div class="mx-auto h-[100svh] h-screen max-w-2xl overflow-hidden">
       <header class="w-full px-3 pt-3 pb-4 bg-[#d5dedd] flex items-center justify-between">
         <a href="#" class="w-10 flex items-baseline">
           <img class="w-full" src="logo_clear.png" alt="logo" />
@@ -56,7 +67,7 @@
         </a>
       </header>
       <main class="flex flex-col justify-between pb-4" style="height: calc(100svh - 76px)">
-        <div class="w-full py-2 px-4 border border-gray-300 flex flex-col justify-center gap-5 mx-auto text-lg bg-[#d5dedd] font-bold">
+        <div class="w-full py-2 px-4 border border-gray-300 flex flex-col justify-between mx-auto text-lg bg-[#d5dedd] font-bold">
           <span class="store_chain text-xl uppercase"></span>
           <span>Автомат №<span class="machine_number"></span></span>
           <span class="address"></span>
@@ -69,13 +80,13 @@
           <div class="py-5 px-4 flex justify-between items-center">
             <div class="flex flex-col items-center relative">
               <div class="flex items-baseline py-[5%] px-4 w-full">
-                <input id="water_input" type="text" pattern="\d+(\.\d{2})?" min="0" max="60" step="0.1" class="w-[160px] outline-none focus:outline-none text-center text-5xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="0" /><span class="ml-2 font-bold">літрів</span>
+                <input id="water_input" type="text" min="0" max="60" step="0.1" class="w-[160px] outline-none focus:outline-none text-center text-5xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="0" /><span class="ml-2 font-bold">літрів</span>
                 <div id="water_error" class="absolute -top-[20px] w-max py-2 px-4 rounded-lg bg-indigo-100" style="display: none">
-                  <span class="text-red-600 font-bold">Максимум 60 літрів</span>
+                  <span class="text-red-600 font-bold">Максимум 60 літр.</span>
                 </div>
               </div>
               <div class="flex items-baseline py-[5%] px-4 w-full">
-                <input id="water_input_price" type="text" pattern="\d+(\.\d{2})?" min="0" max="60" step="0.1" class="w-[160px] outline-none focus:outline-none text-center text-5xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input_price" placeholder="0" /><span class="ml-2 font-bold">грн.</span>
+                <input id="water_input_price" type="text" min="0" max="60" step="0.1" class="w-[160px] outline-none focus:outline-none text-center text-5xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input_price" placeholder="0" /><span class="ml-2 font-bold">грн.</span>
                 <div id="water_price_error" class="absolute -top-[20px] w-max py-2 px-4 rounded-lg bg-indigo-100" style="display: none">
                   <span class="text-red-600 font-bold">Максимум 60 грн.</span>
                 </div>
@@ -132,7 +143,7 @@
         },
       });
 
-      rangeInput.noUiSlider.on("change", () => {
+      rangeInput.noUiSlider.on("update", () => {
         waterInput.value = rangeInput.noUiSlider.get();
         waterInputPrice.value = waterInput.value * waterPrice;
       });
