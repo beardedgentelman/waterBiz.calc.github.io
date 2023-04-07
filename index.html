@@ -69,13 +69,13 @@
           <div class="py-5 px-4 flex justify-between items-center">
             <div class="flex flex-col items-center relative">
               <div class="flex items-baseline py-[5%] px-4 w-full">
-                <input id="water_input" type="text" pattern="[0-9]*" min="0" max="60" step="0.1" class="w-[160px] outline-none focus:outline-none text-center text-5xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="0" /><span class="ml-2 font-bold">літрів</span>
+                <input id="water_input" type="text" pattern="\d+(\.\d{2})?" min="0" max="60" step="0.1" class="w-[160px] outline-none focus:outline-none text-center text-5xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="0" /><span class="ml-2 font-bold">літрів</span>
                 <div id="water_error" class="absolute -top-[20px] w-max py-2 px-4 rounded-lg bg-indigo-100" style="display: none">
                   <span class="text-red-600 font-bold">Максимум 60 літрів</span>
                 </div>
               </div>
               <div class="flex items-baseline py-[5%] px-4 w-full">
-                <input id="water_input_price" type="text" pattern="[0-9]*" min="0" max="60" step="1" class="w-[160px] outline-none focus:outline-none text-center text-5xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input_price" placeholder="0" /><span class="ml-2 font-bold">грн.</span>
+                <input id="water_input_price" type="text" pattern="\d+(\.\d{2})?" min="0" max="60" step="1" class="w-[160px] outline-none focus:outline-none text-center text-5xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input_price" placeholder="0" /><span class="ml-2 font-bold">грн.</span>
                 <div id="water_price_error" class="absolute -top-[20px] w-max py-2 px-4 rounded-lg bg-indigo-100" style="display: none">
                   <span class="text-red-600 font-bold">Максимум 60 грн.</span>
                 </div>
