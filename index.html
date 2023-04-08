@@ -162,16 +162,17 @@
           this.value = "";
           waterInputPrice.value = "";
           waterError.style.display = "block";
+          rangeInput.noUiSlider.set(0);
         } else {
           waterError.style.display = "none";
         }
         if (this.value === "") {
           waterInputPrice.value = 0;
+          rangeInput.noUiSlider.set(0);
         } else {
           waterInputPrice.value = (value * waterPrice).toFixed(2);
+          rangeInput.noUiSlider.set(value);
         }
-
-        rangeInput.noUiSlider.set(value);
       });
 
       waterInputPrice.addEventListener("input", function () {
@@ -187,11 +188,13 @@
           this.value = "";
           waterInput.value = "";
           waterPriceError.style.display = "block";
+          rangeInput.noUiSlider.set(0);
         } else {
           waterPriceError.style.display = "none";
         }
         if (this.value === "") {
           waterInput.value = 0;
+          rangeInput.noUiSlider.set(0);
         } else {
           waterInput.value = (value / waterPrice).toFixed(2);
           rangeInput.noUiSlider.set(waterInput.value);
