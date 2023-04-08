@@ -215,14 +215,23 @@
           waterInput.value = 0;
           rangeInput.noUiSlider.set(0);
         } else {
-          waterInput.value = (value / waterPrice).toFixed(2);
-          rangeInput.noUiSlider.set(waterInput.value);
-          waterError.style.visibility = "hidden";
-          waterError.style.zIndex = "-1";
-          waterError.style.bottom = "0";
-          waterPriceError.style.visibility = "hidden";
-          waterPriceError.style.zIndex = "-1";
-          waterPriceError.style.bottom = "0";
+          if (value / waterPrice > 60) {
+            this.value = "";
+            waterInput.value = "";
+            waterError.style.visibility = "visible";
+            waterError.style.zIndex = "0";
+            waterError.style.bottom = "-28px";
+            rangeInput.noUiSlider.set(0);
+          } else {
+            waterInput.value = (value / waterPrice).toFixed(2);
+            rangeInput.noUiSlider.set(waterInput.value);
+            waterError.style.visibility = "hidden";
+            waterError.style.zIndex = "-1";
+            waterError.style.bottom = "0";
+            waterPriceError.style.visibility = "hidden";
+            waterPriceError.style.zIndex = "-1";
+            waterPriceError.style.bottom = "0";
+          }
         }
       });
 
