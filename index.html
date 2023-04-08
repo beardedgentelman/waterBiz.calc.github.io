@@ -7,60 +7,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="nouislider.css" rel="stylesheet" />
+    <script src="nouislider.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Water Biz</title>
     <style>
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
       body {
         font-family: "Poppins", sans-serif;
         color: #272727;
       }
+      .noUi-value,
+      .noUi-tooltip {
+        font-size: 10px;
+      }
+      .noUi-vertical .noUi-handle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        right: -9px;
+      }
+      .noUi-vertical .noUi-handle:before,
+      .noUi-vertical .noUi-handle:after {
+        display: none;
+      }
+      .noUi-pips-vertical {
+        top: 5px;
+      }
     </style>
   </head>
   <body>
-    <div class="mx-auto h-[100svh] max-w-2xl">
+    <div class="mx-auto h-[100svh] h-screen max-w-2xl overflow-hidden relative">
       <header class="w-full px-3 pt-3 pb-4 bg-[#d5dedd] flex items-center justify-between">
-        <a href="#" class="py-2 px-3">
-          <?xml version="1.0" ?><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px">
-            <title />
-            <g data-name="1" id="_1">
-              <path d="M293.9,450H233.53a15,15,0,0,1-14.92-13.42l-4.47-42.09a152.77,152.77,0,0,1-18.25-7.56L163,413.53a15,15,0,0,1-20-1.06l-42.69-42.69a15,15,0,0,1-1.06-20l26.61-32.93a152.15,152.15,0,0,1-7.57-18.25L76.13,294.1a15,15,0,0,1-13.42-14.91V218.81A15,15,0,0,1,76.13,203.9l42.09-4.47a152.15,152.15,0,0,1,7.57-18.25L99.18,148.25a15,15,0,0,1,1.06-20l42.69-42.69a15,15,0,0,1,20-1.06l32.93,26.6a152.77,152.77,0,0,1,18.25-7.56l4.47-42.09A15,15,0,0,1,233.53,48H293.9a15,15,0,0,1,14.92,13.42l4.46,42.09a152.91,152.91,0,0,1,18.26,7.56l32.92-26.6a15,15,0,0,1,20,1.06l42.69,42.69a15,15,0,0,1,1.06,20l-26.61,32.93a153.8,153.8,0,0,1,7.57,18.25l42.09,4.47a15,15,0,0,1,13.41,14.91v60.38A15,15,0,0,1,451.3,294.1l-42.09,4.47a153.8,153.8,0,0,1-7.57,18.25l26.61,32.93a15,15,0,0,1-1.06,20L384.5,412.47a15,15,0,0,1-20,1.06l-32.92-26.6a152.91,152.91,0,0,1-18.26,7.56l-4.46,42.09A15,15,0,0,1,293.9,450ZM247,420h33.39l4.09-38.56a15,15,0,0,1,11.06-12.91A123,123,0,0,0,325.7,356a15,15,0,0,1,17,1.31l30.16,24.37,23.61-23.61L372.06,328a15,15,0,0,1-1.31-17,122.63,122.63,0,0,0,12.49-30.14,15,15,0,0,1,12.92-11.06l38.55-4.1V232.31l-38.55-4.1a15,15,0,0,1-12.92-11.06A122.63,122.63,0,0,0,370.75,187a15,15,0,0,1,1.31-17l24.37-30.16-23.61-23.61-30.16,24.37a15,15,0,0,1-17,1.31,123,123,0,0,0-30.14-12.49,15,15,0,0,1-11.06-12.91L280.41,78H247l-4.09,38.56a15,15,0,0,1-11.07,12.91A122.79,122.79,0,0,0,201.73,142a15,15,0,0,1-17-1.31L154.6,116.28,131,139.89l24.38,30.16a15,15,0,0,1,1.3,17,123.41,123.41,0,0,0-12.49,30.14,15,15,0,0,1-12.91,11.06l-38.56,4.1v33.38l38.56,4.1a15,15,0,0,1,12.91,11.06A123.41,123.41,0,0,0,156.67,311a15,15,0,0,1-1.3,17L131,358.11l23.61,23.61,30.17-24.37a15,15,0,0,1,17-1.31,122.79,122.79,0,0,0,30.13,12.49,15,15,0,0,1,11.07,12.91ZM449.71,279.19h0Z" fill="#7a7a7a" />
-              <path d="M263.71,340.36A91.36,91.36,0,1,1,355.08,249,91.46,91.46,0,0,1,263.71,340.36Zm0-152.72A61.36,61.36,0,1,0,325.08,249,61.43,61.43,0,0,0,263.71,187.64Z" fill="#7a7a7a" />
-            </g>
-          </svg>
+        <a href="#" class="w-10 flex items-baseline">
+          <img class="w-full" src="logo_clear.png" alt="logo" />
+          <span class="text-5xl font-bold text-gray-600 ml-2">WaterBiz</span>
         </a>
-        <span>
-          <svg fill="#000000" height="35px" width="40px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 463 463" xml:space="preserve">
-            <g>
-              <path
-                d="M319,132.755c0-10.551-4.109-20.471-11.569-27.931L278.176,75.57C273.549,70.941,271,64.789,271,58.245v-5.19
-		c4.765-2.647,8-7.728,8-13.555v-24C279,6.953,272.047,0,263.5,0h-64C190.953,0,184,6.953,184,15.5v24
-		c0,5.827,3.235,10.908,8,13.555v5.19c0,6.544-2.548,12.697-7.176,17.324l-29.255,29.255c-7.46,7.461-11.569,17.38-11.569,27.931
-		V279.5c0,6.177,2.399,11.801,6.31,16c-3.911,4.199-6.31,9.823-6.31,16s2.399,11.801,6.31,16c-3.911,4.199-6.31,9.823-6.31,16
-		s2.399,11.801,6.31,16c-3.911,4.199-6.31,9.823-6.31,16s2.399,11.801,6.31,16c-3.911,4.199-6.31,9.823-6.31,16v16
-		c0,21.78,17.72,39.5,39.5,39.5h96c21.78,0,39.5-17.72,39.5-39.5v-16c0-6.177-2.399-11.801-6.31-16c3.911-4.199,6.31-9.823,6.31-16
-		s-2.399-11.801-6.31-16c3.911-4.199,6.31-9.823,6.31-16s-2.399-11.801-6.31-16c3.911-4.199,6.31-9.823,6.31-16
-		s-2.399-11.801-6.31-16c3.911-4.199,6.31-9.823,6.31-16V132.755z M199,15.5c0-0.275,0.224-0.5,0.5-0.5h64
-		c0.276,0,0.5,0.225,0.5,0.5v24c0,0.275-0.224,0.5-0.5,0.5h-64c-0.276,0-0.5-0.225-0.5-0.5V15.5z M159,132.755
-		c0-6.544,2.548-12.696,7.176-17.323l29.255-29.256C202.891,78.715,207,68.796,207,58.245V55h49v3.245
-		c0,10.55,4.108,20.47,11.569,27.932l29.255,29.255c4.627,4.627,7.176,10.779,7.176,17.323V279.5c0,4.687-3.813,8.5-8.5,8.5h-128
-		c-4.687,0-8.5-3.813-8.5-8.5V132.755z M304,311.5c0,4.687-3.813,8.5-8.5,8.5h-128c-4.687,0-8.5-3.813-8.5-8.5s3.813-8.5,8.5-8.5
-		h128C300.187,303,304,306.813,304,311.5z M304,343.5c0,4.687-3.813,8.5-8.5,8.5h-128c-4.687,0-8.5-3.813-8.5-8.5s3.813-8.5,8.5-8.5
-		h128C300.187,335,304,338.813,304,343.5z M304,375.5c0,4.687-3.813,8.5-8.5,8.5h-128c-4.687,0-8.5-3.813-8.5-8.5s3.813-8.5,8.5-8.5
-		h128C300.187,367,304,370.813,304,375.5z M304,423.5c0,13.51-10.991,24.5-24.5,24.5h-96c-13.509,0-24.5-10.99-24.5-24.5v-16
-		c0-4.687,3.813-8.5,8.5-8.5h128c4.687,0,8.5,3.813,8.5,8.5V423.5z"
-                fill="rgb(129 140 248)"
-              />
-              <path
-                d="M231.5,255c21.78,0,39.5-17.72,39.5-39.5c0-19.047-27.764-60.205-33.329-68.263c-1.4-2.027-3.707-3.237-6.171-3.237
-		s-4.771,1.21-6.171,3.237C219.764,155.295,192,196.453,192,215.5C192,237.28,209.72,255,231.5,255z M221.941,180.717
-		c3.388-5.846,6.802-11.322,9.579-15.646C243.179,183.214,256,206.558,256,215.5c0,13.51-10.991,24.5-24.5,24.5
-		S207,229.01,207,215.5C207,212.791,208.456,203.978,221.941,180.717z"
-                fill="rgb(129 140 248)"
-              />
-            </g>
-          </svg>
-        </span>
-        <a href="#" class="py-2 px-3">
+        <a href="#" class="py-2 px-3" id="open_info_popup">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 512 512" style="enable-background: new 0 0 512 512" xml:space="preserve">
             <g>
               <path
@@ -73,51 +66,191 @@
           </svg>
         </a>
       </header>
-      <main class="py-5 px-4 flex flex-col justify-between" style="height: calc(100svh - 70px)">
-        <section class="py-2 px-4 border border-gray-300 rounded-md flex flex-col justify-center items-center w-4/5 mx-auto text-xl bg-gradient-to-r from-indigo-50 to-indigo-100">
-          <h6 class="water_name">Вода газована</h6>
-          <p class="water_info">
-            <span class="water_price text-2xl"></span> грн. за
-            <span class="water_count text-2xl"></span>
-            грн.
-          </p>
-        </section>
-
-        <section class="flex flex-col items-center">
-          <svg id="Layer_1" class="animate__shakeX w-[180px] h-[180px] max-[380px]:w-[120px] max-[380px]:h-[120px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.89 111.55">
-            <title>red-alert</title>
-            <path class="cls-1" d="M2.35,84.43,45.29,10.2l.17-.27h0a22.92,22.92,0,0,1,7-7.23A17,17,0,0,1,61.58,0a16.78,16.78,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26c.13.21.25.42.36.64l42.24,73.34.23.44h0a22.22,22.22,0,0,1,2.37,10.19,17.59,17.59,0,0,1-2.16,8.35,16,16,0,0,1-6.94,6.61l-.58.26a21.34,21.34,0,0,1-9.11,1.74v0H17.62c-.23,0-.44,0-.66,0a18.07,18.07,0,0,1-6.2-1.15A16.46,16.46,0,0,1,3,104.26a17.59,17.59,0,0,1-3-9.58,23,23,0,0,1,1.57-8.74,8.24,8.24,0,0,1,.77-1.51Z" fill="#a90000" />
-            <path class="cls-2" d="M9,88.76l43.15-74.6c5.23-8.25,13.53-8.46,18.87,0l42.44,73.7c3.38,6.81,1.7,16-9.34,15.77H17.62c-7.27.18-12-6.19-8.64-14.87Z" fill="#a90000" fill-rule="evenodd " />
-            <path class="cls-3" d="M57.57,82.7a5.51,5.51,0,0,1,3.48-1.58,5.75,5.75,0,0,1,2.4.35,5.82,5.82,0,0,1,2,1.31,5.53,5.53,0,0,1,1.62,3.55,6.05,6.05,0,0,1-.08,1.4,5.54,5.54,0,0,1-5.64,4.6,5.67,5.67,0,0,1-2.27-.52,5.56,5.56,0,0,1-2.82-2.94,5.65,5.65,0,0,1-.35-1.27,5.83,5.83,0,0,1-.06-1.31h0a6.19,6.19,0,0,1,.57-2,4.57,4.57,0,0,1,1.13-1.56Zm8.16-10.24c-.2,4.79-8.31,4.8-8.5,0-.82-8.21-2.92-29.39-2.85-37.1.07-2.38,2-3.79,4.56-4.33a12.83,12.83,0,0,1,5,0c2.61.56,4.65,2,4.65,4.44v.24L65.73,72.46Z" fill="#ffffff" />
-          </svg>
-          <h1 class="text-[#a90000] text-center text-5xl font-bold max-[380px]:text-4xl">Помилка зарахування</h1>
-        </section>
-
-        <section class="px-5 text-center">
-          <div class="flex flex-col items-center after:contetnt-[''] after:block after:w-[40%] after:h-[1px] after:bg-[#42a5f5]">
-            <span class="text-3xl font-bold text-indigo-600">&#x20b4;</span>
+      <main class="flex flex-col justify-between pb-4" style="height: calc(100svh - 76px)">
+        <div class="relative">
+          <div class="w-full py-2 px-4 border border-gray-300 flex flex-col justify-between mx-auto text-lg text-stone-600 bg-[#d5dedd] relative z-20">
+            <span class="store_chain text-xl uppercase font-bold"></span>
+            <span>Автомат №<span class="machine_number"></span></span>
+            <span class="address"></span>
+            <div class="flex w-full justify-center gap-6">
+              <span class="water_name"></span>
+              <span><span class="water_price_in"></span> грн./літр</span>
+            </div>
           </div>
-          <p class="text-2xl max-[380px]:text-lg text-indigo-600 font-bold mt-5">
-            Щось пішло не так<br />
-            Почніть операцію спочатку
-          </p>
-        </section>
-        <a href="#" class="block py-2 px-6 w-max mx-auto text-center bg-indigo-400 active:bg-indigo-700 text-xl font-bold text-white rounded-lg">Спробувати ще</a>
+          <div id="water_error" class="absolute left-0 w-full text-xl text-center bg-red-700 transition-all" style="z-index: -1; visibility: hidden; bottom: 0">
+            <span class="text-white">Максимум 60 літр.</span>
+          </div>
+          <div id="water_price_error" class="absolute left-0 w-full text-xl text-center bg-red-700 transition-all" style="z-index: -1; visibility: hidden; bottom: 0">
+            <span class="text-white">Максимум 60 грн.</span>
+          </div>
+        </div>
+
+        <form>
+          <div class="py-5 px-4 flex justify-between items-center">
+            <div class="flex flex-col items-center gap-[10svh]">
+              <div class="flex items-baseline py-[5%] px-4 w-full"><input id="water_input" type="text" min="0" max="60" step="0.1" inputmode="numeric" class="w-[200px] max-[380px]:w-[160px] outline-none focus:outline-none text-center text-5xl max-[380px]:text-3xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="00.00" /><span class="ml-2">літр.</span></div>
+              <div class="flex items-baseline py-[5%] px-4 w-full"><input id="water_input_price" type="text" min="0" max="60" step="0.1" inputmode="numeric" class="w-[200px] max-[380px]:w-[180px] outline-none focus:outline-none text-center text-5xl max-[380px]:text-3xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input_price" placeholder="00.00" /><span class="ml-2">грн.</span></div>
+            </div>
+            <div class="flex flex-col w-full pr-2">
+              <div id="slider" class="h-60 max-[380px]:h-[200px] w-3 border-none bg-indigo-300 mx-auto my-0"></div>
+            </div>
+          </div>
+          <button type="submit" id="submit" class="block py-2 px-6 mt-16 w-[60%] mx-auto text-center bg-indigo-400 active:bg-indigo-700 text-xl font-bold text-white rounded-lg">Сплатити</button>
+        </form>
       </main>
+      <div id="info_popup" class="absolute top-0 left-0 rounded-lg bg-white text-center pt-10 pb-2 px-6 w-full h-screen h-[100svh] z-20" style="display: none">
+        <div id="close_info_popup" class="absolute top-1 right-2 text-2xl font-bold">X</div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ab rerum veritatis, quo earum voluptates aliquid adipisci et laborum porro quae tempore! Similique saepe voluptate amet. Laboriosam veniam atque, corrupti quia, adipisci beatae eveniet iure laborum alias quod consequatur, nostrum voluptas non blanditiis libero! Qui autem fugit cumque excepturi esse recusandae modi voluptates sunt architecto maxime! Vitae facilis explicabo placeat unde rerum optio dolorem amet similique minima expedita iste, voluptates aliquam laborum debitis ad! Cupiditate nemo architecto unde animi voluptas nesciunt obcaecati voluptates aspernatur et ducimus modi velit, tenetur repellendus veniam eos accusantium deleniti quidem blanditiis vitae vel molestias corrupti? Ipsam debitis eos fugit expedita omnis, modi laboriosam autem unde aut delectus laudantium fuga! Animi ut fuga, pariatur fugiat, quam nulla omnis expedita voluptas quae voluptates quo aliquam quasi alias incidunt recusandae provident praesentium dolore vero nihil doloribus officiis. Nulla consectetur nostrum, voluptatem quod aperiam totam pariatur iste molestias fugiat!
+      </div>
     </div>
   </body>
 
   <script>
     window.addEventListener("load", () => {
-      function getPaymentInfo() {
-        const waterPrice = document.querySelector(".water_price");
-        const waterCount = document.querySelector(".water_count");
+      const storeChain = document.querySelector(".store_chain");
+      const machineNumber = document.querySelector(".machine_number");
+      const address = document.querySelector(".address");
+      const waterName = document.querySelector(".water_name");
+      const waterPriceIn = document.querySelector(".water_price_in");
+      const waterPrice = 0.5;
+      const regex = /^\d*\.?\d{0,2}$/;
 
-        waterPrice.innerHTML = "30";
-        waterCount.innerHTML = "12.2";
+      const waterInput = document.getElementById("water_input");
+      const waterInputPrice = document.getElementById("water_input_price");
+      const waterError = document.getElementById("water_error");
+      const waterPriceError = document.getElementById("water_price_error");
+      const max = 60;
+
+      const submitBtn = document.getElementById("submit");
+
+      const openInfo = document.getElementById("open_info_popup");
+      const infoPopup = document.getElementById("info_popup");
+      const closeInfoPopup = document.getElementById("close_info_popup");
+
+      var rangeInput = document.getElementById("slider");
+
+      noUiSlider.create(rangeInput, {
+        range: {
+          min: [0, 0.1],
+          "33.3%": [3, 0.5],
+          "66.6%": [20, 1],
+          max: [60],
+        },
+        step: 1,
+        start: [0],
+        margin: 300,
+        connect: true,
+        direction: "rtl",
+        orientation: "vertical",
+        behaviour: "tap-drag",
+        tooltips: true,
+        pips: {
+          mode: "range",
+          stepped: true,
+          density: 1,
+        },
+      });
+
+      rangeInput.noUiSlider.on("slide", () => {
+        waterInput.value = rangeInput.noUiSlider.get();
+        waterInputPrice.value = waterInput.value * waterPrice;
+        waterError.style.visibility = "hidden";
+        waterError.style.zIndex = "-1";
+        waterError.style.bottom = "0";
+        waterPriceError.style.visibility = "hidden";
+        waterPriceError.style.zIndex = "-1";
+        waterPriceError.style.bottom = "0";
+      });
+
+      waterInput.addEventListener("input", function () {
+        let value = this.value.replace(/[^\d.]/g, "");
+        if (!regex.test(value)) {
+          this.value = "";
+          return;
+        }
+        value = parseFloat(value);
+        if (isNaN(value)) {
+          this.value = "";
+        } else if (value > max) {
+          this.value = "";
+          waterInputPrice.value = "";
+          waterError.style.visibility = "visible";
+          waterError.style.zIndex = "0";
+          waterError.style.bottom = "-28px";
+          rangeInput.noUiSlider.set(0);
+        }
+        if (this.value === "") {
+          waterInputPrice.value = 0;
+          rangeInput.noUiSlider.set(0);
+        } else {
+          waterInputPrice.value = (value * waterPrice).toFixed(2);
+          rangeInput.noUiSlider.set(value);
+          waterError.style.visibility = "hidden";
+          waterError.style.zIndex = "-1";
+          waterError.style.bottom = "0";
+          waterPriceError.style.visibility = "hidden";
+          waterPriceError.style.zIndex = "-1";
+          waterPriceError.style.bottom = "0";
+        }
+      });
+
+      waterInputPrice.addEventListener("input", function () {
+        let value = this.value.replace(/[^\d.]/g, "");
+        if (!regex.test(value)) {
+          this.value = "";
+          return;
+        }
+        value = parseFloat(value);
+        if (isNaN(value)) {
+          this.value = "";
+        } else if (value > max) {
+          this.value = "";
+          waterInput.value = "";
+          waterPriceError.style.visibility = "visible";
+          waterPriceError.style.zIndex = "0";
+          waterPriceError.style.bottom = "-28px";
+          rangeInput.noUiSlider.set(0);
+        }
+        if (this.value === "") {
+          waterInput.value = 0;
+          rangeInput.noUiSlider.set(0);
+        } else {
+          waterInput.value = (value / waterPrice).toFixed(2);
+          rangeInput.noUiSlider.set(waterInput.value);
+          waterError.style.visibility = "hidden";
+          waterError.style.zIndex = "-1";
+          waterError.style.bottom = "0";
+          waterPriceError.style.visibility = "hidden";
+          waterPriceError.style.zIndex = "-1";
+          waterPriceError.style.bottom = "0";
+        }
+      });
+
+      function setInfo() {
+        storeChain.innerHTML = "Назва мережі";
+        machineNumber.innerHTML = "00";
+        address.innerHTML = "Адреса";
+        waterName.innerHTML = "Вид води";
+        waterPriceIn.innerHTML = waterPrice.toString();
       }
 
-      getPaymentInfo();
+      setInfo();
+
+      submitBtn.addEventListener("click", function () {
+        console.log(`Water count: ${waterInput.value}, Coast: ${waterInputPrice.value}`);
+      });
+
+      openInfo.addEventListener("click", () => {
+        if ((infoPopup.style.display = "none")) {
+          infoPopup.style.display = "block";
+        } else {
+          infoPopup.style.display = "none";
+        }
+      });
+
+      closeInfoPopup.addEventListener("click", () => {
+        infoPopup.style.display = "none";
+      });
     });
   </script>
 </html>
