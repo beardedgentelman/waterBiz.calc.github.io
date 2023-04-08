@@ -99,8 +99,8 @@
         </form>
       </main>
       <div id="info_popup" class="absolute top-0 left-0 rounded-lg bg-white text-center pt-10 pb-2 px-6 w-full h-screen h-[100svh] z-20" style="display: none">
-        <div id="close_info_popup" class="absolute top-1 right-2 text-2xl font-bold">X</div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ab rerum veritatis, quo earum voluptates aliquid adipisci et laborum porro quae tempore! Similique saepe voluptate amet. Laboriosam veniam atque, corrupti quia, adipisci beatae eveniet iure laborum alias quod consequatur, nostrum voluptas non blanditiis libero! Qui autem fugit cumque excepturi esse recusandae modi voluptates sunt architecto maxime! Vitae facilis explicabo placeat unde rerum optio dolorem amet similique minima expedita iste, voluptates aliquam laborum debitis ad! Cupiditate nemo architecto unde animi voluptas nesciunt obcaecati voluptates aspernatur et ducimus modi velit, tenetur repellendus veniam eos accusantium deleniti quidem blanditiis vitae vel molestias corrupti? Ipsam debitis eos fugit expedita omnis, modi laboriosam autem unde aut delectus laudantium fuga! Animi ut fuga, pariatur fugiat, quam nulla omnis expedita voluptas quae voluptates quo aliquam quasi alias incidunt recusandae provident praesentium dolore vero nihil doloribus officiis. Nulla consectetur nostrum, voluptatem quod aperiam totam pariatur iste molestias fugiat!
+        <div id="close_info_popup" class="absolute top-1 right-2 text-2xl font-bold cursor-pointer">X</div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ab rerum veritatis, quo earum voluptates aliquid adipisci et laborum porro quae tempore! Similique saepe voluptate amet. Laboriosam veniam atque, corrupti quia, adipisci beatae eveniet iure laborum alias quod consequatur, nostrum voluptas non blanditiis libero! Qui autem fugit cumque excepturi esse recusandae modi voluptates sunt architecto maxime! Vitae facilis explicabo placeat unde rerum optio dolorem amet similique minima expedita iste, voluptates aliquam laborum debitis ad!
       </div>
     </div>
   </body>
@@ -240,7 +240,8 @@
         console.log(`Water count: ${waterInput.value}, Coast: ${waterInputPrice.value}`);
       });
 
-      openInfo.addEventListener("click", () => {
+      openInfo.addEventListener("click", (e) => {
+        e.preventDefault();
         if ((infoPopup.style.display = "none")) {
           infoPopup.style.display = "block";
         } else {
@@ -248,7 +249,8 @@
         }
       });
 
-      closeInfoPopup.addEventListener("click", () => {
+      closeInfoPopup.addEventListener("click", (e) => {
+        e.preventDefault();
         infoPopup.style.display = "none";
       });
     });
