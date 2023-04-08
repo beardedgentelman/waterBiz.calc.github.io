@@ -78,22 +78,22 @@
         </div>
         <form>
           <div class="py-5 px-4 flex justify-between items-center">
-            <div class="flex flex-col items-center relative">
+            <div class="flex flex-col items-center gap-[10svh] relative">
               <div class="flex items-baseline py-[5%] px-4 w-full">
-                <input id="water_input" type="text" min="0" max="60" step="0.1" class="w-[160px] outline-none focus:outline-none text-center text-5xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="0" /><span class="ml-2 font-bold">літрів</span>
+                <input id="water_input" type="text" min="0" max="60" step="0.1" inputmode="numeric" class="w-[160px] max-[380px]:w-[120px] outline-none focus:outline-none text-center text-5xl max-[380px]:text-3xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="00.00" /><span class="ml-2 font-bold">літр.</span>
                 <div id="water_error" class="absolute -top-[20px] w-max py-2 px-4 rounded-lg bg-indigo-100" style="display: none">
                   <span class="text-red-600 font-bold">Максимум 60 літр.</span>
                 </div>
               </div>
               <div class="flex items-baseline py-[5%] px-4 w-full">
-                <input id="water_input_price" type="text" min="0" max="60" step="0.1" class="w-[160px] outline-none focus:outline-none text-center text-5xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input_price" placeholder="0" /><span class="ml-2 font-bold">грн.</span>
+                <input id="water_input_price" type="text" min="0" max="60" step="0.1" inputmode="numeric" class="w-[160px] max-[380px]:w-[120px] outline-none focus:outline-none text-center text-5xl max-[380px]:text-3xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input_price" placeholder="00.00" /><span class="ml-2 font-bold">грн.</span>
                 <div id="water_price_error" class="absolute -top-[20px] w-max py-2 px-4 rounded-lg bg-indigo-100" style="display: none">
                   <span class="text-red-600 font-bold">Максимум 60 грн.</span>
                 </div>
               </div>
             </div>
-            <div class="flex flex-col w-full">
-              <div id="slider" class="h-[200px] max-[380px]:h-[180px] w-3 border-none bg-indigo-300 mx-auto my-0"></div>
+            <div class="flex flex-col w-full pr-2">
+              <div id="slider" class="h-60 max-[380px]:h-[200px] w-3 border-none bg-indigo-300 mx-auto my-0"></div>
             </div>
           </div>
           <button type="submit" id="submit" class="block py-2 px-6 mt-16 w-[60%] mx-auto text-center bg-indigo-400 active:bg-indigo-700 text-xl font-bold text-white rounded-lg">Сплатити</button>
@@ -110,6 +110,7 @@
       const waterName = document.querySelector(".water_name");
       // const waterPrice = document.querySelector(".water_price");
       const waterPrice = 0.5;
+      const regex = /^\d*\.?\d{0,2}$/;
 
       const waterInput = document.getElementById("water_input");
       const waterInputPrice = document.getElementById("water_input_price");
@@ -124,8 +125,8 @@
       noUiSlider.create(rangeInput, {
         range: {
           min: [0, 0.1],
-          "10%": [3, 0.5],
-          "50%": [20, 1],
+          "33.3%": [3, 0.5],
+          "66.6%": [20, 1],
           max: [60],
         },
         step: 1,
@@ -139,22 +140,27 @@
         pips: {
           mode: "range",
           stepped: true,
-          density: 5,
+          density: 1,
         },
       });
 
-      rangeInput.noUiSlider.on("update", () => {
+      rangeInput.noUiSlider.on("slide", () => {
         waterInput.value = rangeInput.noUiSlider.get();
         waterInputPrice.value = waterInput.value * waterPrice;
       });
 
       waterInput.addEventListener("input", function () {
-        let value = parseFloat(this.value);
+        let value = this.value.replace(/[^\d.]/g, "");
+        if (!regex.test(value)) {
+          this.value = "";
+          return;
+        }
+        value = parseFloat(value);
         if (isNaN(value)) {
           this.value = "";
         } else if (value > max) {
-          this.value = 0;
-          waterInputPrice.value = 0;
+          this.value = "";
+          waterInputPrice.value = "";
           waterError.style.display = "block";
         } else {
           waterError.style.display = "none";
@@ -162,19 +168,24 @@
         if (this.value === "") {
           waterInputPrice.value = 0;
         } else {
-          waterInputPrice.value = value * waterPrice;
+          waterInputPrice.value = (value * waterPrice).toFixed(2);
         }
 
         rangeInput.noUiSlider.set(value);
       });
 
       waterInputPrice.addEventListener("input", function () {
-        let value = parseFloat(this.value);
+        let value = this.value.replace(/[^\d.]/g, "");
+        if (!regex.test(value)) {
+          this.value = "";
+          return;
+        }
+        value = parseFloat(value);
         if (isNaN(value)) {
           this.value = "";
         } else if (value > max) {
-          this.value = 0;
-          waterInput.value = 0;
+          this.value = "";
+          waterInput.value = "";
           waterPriceError.style.display = "block";
         } else {
           waterPriceError.style.display = "none";
@@ -182,7 +193,7 @@
         if (this.value === "") {
           waterInput.value = 0;
         } else {
-          waterInput.value = value / waterPrice;
+          waterInput.value = (value / waterPrice).toFixed(2);
           rangeInput.noUiSlider.set(waterInput.value);
         }
       });
