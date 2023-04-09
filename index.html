@@ -49,7 +49,7 @@
         right: 130%;
       }
       .card {
-        background: linear-gradient(120deg, #f0e7ff 30%, #ffffff 38%, #ffffff 40%, #f0e7ff 48%);
+        background: linear-gradient(120deg, rgb(156 163 175) 30%, #cdcdcd 38%, #cdcdcd 40%, rgb(156 163 175) 48%);
         background-size: 200% 100%;
         background-position: 100% 0;
         animation: load 2s infinite;
@@ -70,6 +70,7 @@
         <a href="#" class="py-2 px-3" id="open_info_popup">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 512 512" style="enable-background: new 0 0 512 512" xml:space="preserve">
             <g>
+              #fcfcfc
               <path
                 d="M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256S397.385,0,256,0z M256,464
               c-114.875,0-208-93.125-208-208S141.125,48,256,48s208,93.125,208,208S370.875,464,256,464z M224,128h64v64h-64V128z M320,384H192
@@ -80,18 +81,18 @@
           </svg>
         </a>
       </header>
-      <main class="flex flex-col justify-between pb-2" style="height: calc(100svh - 64px)">
+      <main class="flex flex-col justify-between p-2" style="height: calc(100svh - 64px)">
         <div class="relative mt-2">
-          <div class="card w-full flex flex-col gap-4 py-2 px-4 shadow-md mx-auto relative z-20 bg-[#fcfcfc]">
+          <div class="card w-full flex flex-col gap-4 py-2 px-4 shadow-md mx-auto relative z-20 bg-[#fcfcfc] rounded-t-md">
             <div class="w-full flex items-center justify-between">
-              <span class="store_chain text-[#387db2]"></span>
-              <span class="text-[#387db2]">Автомат № <span class="machine_number"></span></span>
+              <span class="store_chain text-[#fcfcfc]"></span>
+              <span class="text-[#fcfcfc]">Автомат № <span class="machine_number"></span></span>
             </div>
-            <p class="address text-[#387db2]"></p>
+            <p class="address text-[#fcfcfc]"></p>
 
-            <div class="w-full flex items-center justify-between">
-              <span class="water_name font-bold text-2xl"></span>
-              <span><span class="water_price_in font-bold text-2xl"></span><span class="text-[#387db2]"> ₴/літр</span></span>
+            <div class="w-full flex items-baseline justify-between h-8">
+              <span class="water_name font-bold text-xl px-2 bg-[#fcfcfc] rounded-lg"></span>
+              <span class="water_price_in font-bold text-xl px-2 bg-[#fcfcfc] rounded-lg"></span><span class="text-[#fcfcfc]">₴/літр</span>
             </div>
           </div>
           <div id="water_error" class="absolute left-0 w-full text-xl text-center bg-red-700 transition-all" style="z-index: -1; visibility: hidden; bottom: 0">
@@ -102,7 +103,7 @@
           </div>
         </div>
 
-        <form class="flex-auto flex justify-between items-center">
+        <form class="flex-auto flex justify-between items-center mt-2">
           <div class="flex flex-col items-start justify-between gap-[15svh]">
             <div class="flex items-baseline py-[5%] px-4 w-full">
               <input id="water_input" type="text" min="0" max="60" step="0.1" inputmode="decimal" class="w-32 outline-none focus:outline-none text-center text-5xl max-[380px]:text-3xl font-bold text-md border-b-2 border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="00.00" />
@@ -118,11 +119,11 @@
           </div>
         </form>
 
-        <button type="button" id="submit" class="block py-2 px-6 mt-5 w-[60%] mx-auto text-center text-[#387db2] active:bg-[#fcfcfc] active:text-[#1b1b1b] active:rounded-lg text-xl font-bold rounded-lg" style="background: linear-gradient(120deg, #f0e7ff 30%, #ffffff 38%, #ffffff 40%, #f0e7ff 48%); background-size: 200% 100%; background-position: 100% 0; animation: load 2s infinite">Сплатити</button>
+        <button type="button" id="submit" class="block py-2 px-6 mt-5 w-[60%] mx-auto text-center text-[#fcfcfc] active:bg-[#fcfcfc] active:text-[#1b1b1b] active:rounded-lg text-xl font-bold rounded-lg" style="background: linear-gradient(120deg, rgb(156 163 175) 30%, #cdcdcd 38%, #cdcdcd 40%, rgb(156 163 175) 48%); background-size: 200% 100%; background-position: 100% 0; animation: load 2s infinite">Сплатити</button>
       </main>
 
       <div id="info_popup" class="absolute top-0 left-0 rounded-lg bg-white text-center pt-10 pb-2 px-6 w-full h-screen h-[100svh] overflow-y-scroll z-20" style="display: none">
-        <div id="close_info_popup" class="absolute top-1 right-2 text-2xl font-bold cursor-pointer">X</div>
+        <div id="close_info_popup" class="absolute top-1 right-2 text-2xl font-bold cursor-pointer p-2">X</div>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ab rerum veritatis, quo earum voluptates aliquid adipisci et laborum porro quae tempore! Similique saepe voluptate amet. Laboriosam veniam atque, corrupti quia, adipisci beatae eveniet iure laborum alias quod consequatur, nostrum voluptas non blanditiis libero! Qui autem fugit cumque excepturi esse recusandae modi voluptates sunt architecto maxime! Vitae facilis explicabo placeat unde rerum optio dolorem amet similique minima expedita iste, voluptates aliquam laborum debitis ad!
       </div>
     </div>
@@ -135,7 +136,7 @@
       const address = document.querySelector(".address");
       const waterName = document.querySelector(".water_name");
       const waterPriceIn = document.querySelector(".water_price_in");
-      const waterPrice = 0.5;
+      const waterPrice = 1.5;
       const regex = /^\d*\.?\d{0,2}$/;
 
       const waterInput = document.getElementById("water_input");
@@ -176,7 +177,7 @@
 
       rangeInput.noUiSlider.on("slide", () => {
         waterInput.value = rangeInput.noUiSlider.get();
-        waterInputPrice.value = waterInput.value * waterPrice;
+        waterInputPrice.value = Number(waterInput.value * waterPrice).toFixed(2);
         waterError.style.visibility = "hidden";
         waterError.style.zIndex = "-1";
         waterError.style.bottom = "0";
@@ -189,6 +190,7 @@
         let value = this.value.replace(/[^\d.]/g, "");
         if (!regex.test(value)) {
           this.value = "";
+          waterInputPrice.value = "";
           return;
         }
         value = parseFloat(value);
@@ -203,7 +205,7 @@
           rangeInput.noUiSlider.set(0);
         }
         if (this.value === "") {
-          waterInputPrice.value = 0;
+          waterInputPrice.value = "";
           rangeInput.noUiSlider.set(0);
         } else {
           waterInputPrice.value = (value * waterPrice).toFixed(2);
@@ -221,6 +223,7 @@
         let value = this.value.replace(/[^\d.]/g, "");
         if (!regex.test(value)) {
           this.value = "";
+          waterInput.value = "";
           return;
         }
         value = parseFloat(value);
@@ -235,7 +238,7 @@
           rangeInput.noUiSlider.set(0);
         }
         if (this.value === "") {
-          waterInput.value = 0;
+          waterInput.value = "";
           rangeInput.noUiSlider.set(0);
         } else {
           if (value / waterPrice > 60) {
