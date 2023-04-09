@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet" />
     <link href="nouislider.css" rel="stylesheet" />
     <script src="nouislider.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,8 +24,8 @@
         -moz-appearance: textfield;
       }
       body {
-        font-family: "Poppins", sans-serif;
-        color: #272727;
+        font-family: "Exo 2";
+        color: #1b1b1b;
       }
       .noUi-value,
       .noUi-tooltip {
@@ -44,14 +44,28 @@
       .noUi-pips-vertical {
         top: 5px;
       }
+      .noUi-vertical .noUi-tooltip {
+        top: -10%;
+        right: 130%;
+      }
+      .card {
+        background: linear-gradient(120deg, #f0e7ff 30%, #ffffff 38%, #ffffff 40%, #f0e7ff 48%);
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        animation: load 2s infinite;
+      }
+      @keyframes load {
+        100% {
+          background-position: -100% 0;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="mx-auto h-[100svh] h-screen max-w-2xl overflow-hidden relative">
-      <header class="w-full px-3 pt-3 pb-4 bg-[#d5dedd] flex items-center justify-between">
-        <a href="#" class="w-10 flex items-baseline">
-          <img class="w-full" src="logo_clear.png" alt="logo" />
-          <span class="text-5xl font-bold text-gray-600 ml-2">WaterBiz</span>
+      <header class="w-full px-3 pt-3 pb-4 bg-gray-400 flex items-center justify-between">
+        <a href="#" class="max-w-[120px] min-w-[80px] flex items-baseline bg-[#fcfcfc] py-1 px-2 rounded-md">
+          <img class="w-full" src="logo.png" alt="logo" />
         </a>
         <a href="#" class="py-2 px-3" id="open_info_popup">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 512 512" style="enable-background: new 0 0 512 512" xml:space="preserve">
@@ -60,21 +74,24 @@
                 d="M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256S397.385,0,256,0z M256,464
               c-114.875,0-208-93.125-208-208S141.125,48,256,48s208,93.125,208,208S370.875,464,256,464z M224,128h64v64h-64V128z M320,384H192
               v-32h32v-96h-32v-32h96v128h32V384z"
-                fill="#7a7a7a"
+                fill="#fcfcfc"
               />
             </g>
           </svg>
         </a>
       </header>
-      <main class="flex flex-col justify-between pb-4" style="height: calc(100svh - 76px)">
-        <div class="relative">
-          <div class="w-full py-2 px-4 border border-gray-300 flex flex-col justify-between mx-auto text-lg text-stone-600 bg-[#d5dedd] relative z-20">
-            <span class="store_chain text-xl uppercase font-bold"></span>
-            <span>Автомат №<span class="machine_number"></span></span>
-            <span class="address"></span>
-            <div class="flex w-full justify-center gap-6">
-              <span class="water_name"></span>
-              <span><span class="water_price_in"></span> грн./літр</span>
+      <main class="flex flex-col justify-between pb-2" style="height: calc(100svh - 64px)">
+        <div class="relative mt-2">
+          <div class="card w-full flex flex-col gap-4 py-2 px-4 shadow-md mx-auto relative z-20 bg-[#fcfcfc]">
+            <div class="w-full flex items-center justify-between">
+              <span class="store_chain text-[#387db2]"></span>
+              <span class="text-[#387db2]">Автомат № <span class="machine_number"></span></span>
+            </div>
+            <p class="address text-[#387db2]"></p>
+
+            <div class="w-full flex items-center justify-between">
+              <span class="water_name font-bold text-2xl"></span>
+              <span><span class="water_price_in font-bold text-2xl"></span><span class="text-[#387db2]"> ₴/літр</span></span>
             </div>
           </div>
           <div id="water_error" class="absolute left-0 w-full text-xl text-center bg-red-700 transition-all" style="z-index: -1; visibility: hidden; bottom: 0">
@@ -85,20 +102,26 @@
           </div>
         </div>
 
-        <form>
-          <div class="py-5 px-4 flex justify-between items-center">
-            <div class="flex flex-col items-center gap-[10svh]">
-              <div class="flex items-baseline py-[5%] px-4 w-full"><input id="water_input" type="text" min="0" max="60" step="0.1" inputmode="numeric" class="w-[200px] max-[380px]:w-[160px] outline-none focus:outline-none text-center text-5xl max-[380px]:text-3xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="00.00" /><span class="ml-2">літр.</span></div>
-              <div class="flex items-baseline py-[5%] px-4 w-full"><input id="water_input_price" type="text" min="0" max="60" step="0.1" inputmode="numeric" class="w-[200px] max-[380px]:w-[180px] outline-none focus:outline-none text-center text-5xl max-[380px]:text-3xl font-bold text-md border-b border-gray-400 focus:text-black flex items-center" name="water_input_price" placeholder="00.00" /><span class="ml-2">грн.</span></div>
+        <form class="flex-auto flex justify-between items-center">
+          <div class="flex flex-col items-start justify-between gap-[15svh]">
+            <div class="flex items-baseline py-[5%] px-4 w-full">
+              <input id="water_input" type="text" min="0" max="60" step="0.1" inputmode="decimal" class="w-32 outline-none focus:outline-none text-center text-5xl max-[380px]:text-3xl font-bold text-md border-b-2 border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="00.00" />
+              <span class="ml-2">літр.</span>
             </div>
-            <div class="flex flex-col w-full pr-2">
-              <div id="slider" class="h-60 max-[380px]:h-[200px] w-3 border-none bg-indigo-300 mx-auto my-0"></div>
+            <div class="flex items-baseline py-[5%] px-4 w-full">
+              <input id="water_input_price" type="text" min="0" max="60" step="0.1" inputmode="decimal" class="w-32 outline-none focus:outline-none text-center text-5xl max-[380px]:text-3xl font-bold text-md border-b-2 border-gray-400 focus:text-black flex items-center" name="water_input_price" placeholder="00.00" />
+              <span class="ml-2">грн.</span>
             </div>
           </div>
-          <button type="submit" id="submit" class="block py-2 px-6 mt-16 w-[60%] mx-auto text-center bg-indigo-400 active:bg-indigo-700 text-xl font-bold text-white rounded-lg">Сплатити</button>
+          <div class="flex flex-col w-full pr-2">
+            <div id="slider" class="h-[50svh] w-3 border-none bg-[#4c87b4] mx-auto my-0"></div>
+          </div>
         </form>
+
+        <button type="button" id="submit" class="block py-2 px-6 mt-5 w-[60%] mx-auto text-center text-[#387db2] active:bg-[#fcfcfc] active:text-[#1b1b1b] active:rounded-lg text-xl font-bold rounded-lg" style="background: linear-gradient(120deg, #f0e7ff 30%, #ffffff 38%, #ffffff 40%, #f0e7ff 48%); background-size: 200% 100%; background-position: 100% 0; animation: load 2s infinite">Сплатити</button>
       </main>
-      <div id="info_popup" class="absolute top-0 left-0 rounded-lg bg-white text-center pt-10 pb-2 px-6 w-full h-screen h-[100svh] z-20" style="display: none">
+
+      <div id="info_popup" class="absolute top-0 left-0 rounded-lg bg-white text-center pt-10 pb-2 px-6 w-full h-screen h-[100svh] overflow-y-scroll z-20" style="display: none">
         <div id="close_info_popup" class="absolute top-1 right-2 text-2xl font-bold cursor-pointer">X</div>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ab rerum veritatis, quo earum voluptates aliquid adipisci et laborum porro quae tempore! Similique saepe voluptate amet. Laboriosam veniam atque, corrupti quia, adipisci beatae eveniet iure laborum alias quod consequatur, nostrum voluptas non blanditiis libero! Qui autem fugit cumque excepturi esse recusandae modi voluptates sunt architecto maxime! Vitae facilis explicabo placeat unde rerum optio dolorem amet similique minima expedita iste, voluptates aliquam laborum debitis ad!
       </div>
@@ -236,17 +259,21 @@
       });
 
       function setInfo() {
-        storeChain.innerHTML = "Назва мережі";
+        storeChain.innerHTML = `ТМ "Тестова Назва"`;
         machineNumber.innerHTML = "00";
-        address.innerHTML = "Адреса";
-        waterName.innerHTML = "Вид води";
+        address.innerHTML = "м.Тестове, вул.Тестова, б.0";
+        waterName.innerHTML = "Тестовий вид води";
         waterPriceIn.innerHTML = waterPrice.toString();
       }
 
       setInfo();
 
       submitBtn.addEventListener("click", function () {
-        console.log(`Water count: ${waterInput.value}, Coast: ${waterInputPrice.value}`);
+        const data = {
+          waterCount: waterInput.value,
+          waterPrice: waterInputPrice.value,
+        };
+        console.log(data);
       });
 
       openInfo.addEventListener("click", (e) => {
