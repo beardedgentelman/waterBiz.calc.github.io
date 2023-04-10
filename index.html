@@ -1,3 +1,168 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet"><link href="nouislider.css" rel="stylesheet"><script src="nouislider.js"></script><script src="https://cdn.tailwindcss.com"></script><title>Water Biz</title><style>input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}body{font-family:"Exo 2";color:#1b1b1b}.noUi-tooltip,.noUi-value{font-size:10px}.noUi-vertical .noUi-handle{width:40px;height:40px;padding:8px;border-radius:50%;right:-9px}.noUi-vertical .noUi-handle:after,.noUi-vertical .noUi-handle:before{display:none}.noUi-vertical .noUi-tooltip{right:130%}.noUi-connect{background:#82aeb4}.card{background:linear-gradient(120deg,#82aeb4 30%,#cdcdcd 38%,#cdcdcd 40%,#82aeb4 48%);background-size:200% 100%;background-position:100% 0;animation:2s infinite load}@keyframes load{100%{background-position:-100% 0}}</style></head><body><div class="mx-auto h-[100svh] h-screen max-w-2xl overflow-hidden relative"><header class="w-full px-3 pt-3 pb-4 bg-gray-400 flex items-center justify-between"><a href="#" class="max-w-[120px] min-w-[80px] flex items-baseline bg-[#fcfcfc] py-1 px-2 rounded-md"><img class="w-full" src="logo.png" alt="logo"></a><a href="#" class="py-2 px-3" id="open_info_popup"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g>#fcfcfc<path d="M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256S397.385,0,256,0z M256,464
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="nouislider.min.css" rel="stylesheet" />
+    <script src="nouislider.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Water Biz</title>
+    <style>
+      input::-webkit-inner-spin-button,
+      input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+      body {
+        font-family: "Exo 2";
+        color: #1b1b1b;
+      }
+      .noUi-tooltip,
+      .noUi-value {
+        font-size: 10px;
+      }
+      .noUi-vertical .noUi-handle {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        border-radius: 50%;
+        right: -9px;
+      }
+      .noUi-vertical .noUi-handle:after,
+      .noUi-vertical .noUi-handle:before {
+        display: none;
+      }
+      .noUi-vertical .noUi-tooltip {
+        right: 130%;
+      }
+      .noUi-connect {
+        background: #82aeb4;
+      }
+      .card {
+        background: linear-gradient(120deg, #82aeb4 30%, #cdcdcd 38%, #cdcdcd 40%, #82aeb4 48%);
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        animation: 2s infinite load;
+      }
+      @keyframes load {
+        100% {
+          background-position: -100% 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mx-auto h-[100svh] h-screen max-w-2xl overflow-hidden relative">
+      <header class="w-full px-3 pt-3 pb-4 bg-gray-400 flex items-center justify-between">
+        <a href="#" class="max-w-[120px] min-w-[80px] flex items-baseline bg-[#fcfcfc] py-1 px-2 rounded-md"><img class="w-full" src="logo.png" alt="logo" /></a
+        ><a href="#" class="py-2 px-3" id="open_info_popup"
+          ><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 512 512" style="enable-background: new 0 0 512 512" xml:space="preserve">
+            <g>
+              #fcfcfc
+              <path
+                d="M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256S397.385,0,256,0z M256,464
   c-114.875,0-208-93.125-208-208S141.125,48,256,48s208,93.125,208,208S370.875,464,256,464z M224,128h64v64h-64V128z M320,384H192
-  v-32h32v-96h-32v-32h96v128h32V384z" fill="#fcfcfc"/></g></svg></a></header><main class="flex flex-col justify-between px-2 pb-2" style="height:calc(100svh - 64px)"><div class="relative mt-1"><div class="card w-full flex flex-col gap-4 py-2 px-4 shadow-md mx-auto relative z-2 rounded-t-md"><div class="w-full flex items-center justify-between"><span class="store_chain text-[#fcfcfc]"></span><span class="text-[#fcfcfc]">Автомат №<span class="machine_number"></span></span></div><p class="address text-[#fcfcfc]"></p><div class="w-full flex items-baseline justify-between h-8"><div><span class="water_name font-bold text-xl px-2 bg-[#fcfcfc] rounded-lg"></span></div><div><span class="water_price_in font-bold text-xl px-2 bg-[#fcfcfc] rounded-lg"></span><span class="text-[#fcfcfc]"> ₴/літр</span></div></div></div><div id="water_error" class="absolute left-0 w-full text-xl text-center bg-red-700 transition-all" style="z-index:-1;visibility:hidden;bottom:0"><span class="text-white">Максимум 60 літр.</span></div><div id="water_price_error" class="absolute left-0 w-full text-xl text-center bg-red-700 transition-all" style="z-index:-1;visibility:hidden;bottom:0"><span class="text-white">Максимум 60 грн.</span></div></div><form id="form" class="flex-auto flex justify-between items-center mt-[10%]"><div class="flex flex-col items-start justify-between gap-[15svh]"><div class="flex items-baseline py-[5%] px-4 w-full"><input id="water_input" type="text" min="0" max="60" step="0.1" inputmode="decimal" class="w-36 outline-none focus:outline-none text-center text-5xl px-1 max-[380px]:text-3xl font-bold text-md border-b-2 border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="00.00"><span class="ml-2">літр.</span></div><div class="flex items-baseline py-[5%] px-4 w-full"><input id="water_input_price" type="text" min="0" max="60" step="0.1" inputmode="decimal" class="w-36 outline-none focus:outline-none text-center text-5xl px-1 max-[380px]:text-3xl font-bold text-md border-b-2 border-gray-400 focus:text-black flex items-center" name="water_input_price" placeholder="00.00"><span class="ml-2">грн.</span></div></div><div class="flex flex-col w-full pr-2"><div id="slider" class="h-[50svh] w-6 mx-auto my-0"></div></div></form><button type="button" id="submit" class="block py-4 px-6 mt-5 w-full mx-auto text-center text-[#fcfcfc] active:bg-[#fcfcfc] active:text-[#1b1b1b] active:rounded-lg text-xl font-bold rounded-lg" style="background:linear-gradient(120deg,#82aeb4 30%,#cdcdcd 38%,#cdcdcd 40%,#82aeb4 48%);background-size:200% 100%;background-position:100% 0;animation:load 2s infinite">Сплатити</button></main><div id="info_popup" class="absolute top-0 left-0 rounded-lg bg-white text-center pt-10 pb-2 px-6 w-full h-screen h-[100svh] overflow-y-scroll z-20" style="display:none"><div id="close_info_popup" class="absolute top-1 right-2 text-2xl font-bold cursor-pointer p-2">X</div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ab rerum veritatis, quo earum voluptates aliquid adipisci et laborum porro quae tempore! Similique saepe voluptate amet. Laboriosam veniam atque, corrupti quia, adipisci beatae eveniet iure laborum alias quod consequatur, nostrum voluptas non blanditiis libero! Qui autem fugit cumque excepturi esse recusandae modi voluptates sunt architecto maxime! Vitae facilis explicabo placeat unde rerum optio dolorem amet similique minima expedita iste, voluptates aliquam laborum debitis ad!</div></div></body><script>window.addEventListener("load",()=>{let e=document.querySelector(".store_chain"),t=document.querySelector(".machine_number"),i=document.querySelector(".address"),l=document.querySelector(".water_name"),n=document.querySelector(".water_price_in"),s=document.getElementById("form"),o=s.elements.water_input,r=s.elements.water_input_price,d=document.getElementById("water_error"),a=document.getElementById("water_price_error"),y=/^\d{0,}([,.]\d{0,2})?$/,u=document.getElementById("submit"),v=document.getElementById("open_info_popup"),$=document.getElementById("info_popup"),p=document.getElementById("close_info_popup"),c=document.getElementById("slider");noUiSlider.create(c,{range:{min:[0,.1],"33.3%":[3,.5],"66.6%":[20,1],max:[60]},step:1,start:[0],margin:300,connect:[!0,!1],direction:"rtl",orientation:"vertical",behaviour:"tap-drag",tooltips:!0,pips:{mode:"range",stepped:!0,density:1}});let b=c.querySelector(".noUi-handle"),m=c.querySelector(".noUi-tooltip");function x(){e.textContent=`ТМ "Тестова Назва"`,t.textContent="00",i.textContent="м.Тестове, вул.Тестова, б.0",l.textContent="Тестовий вид води",n.textContent=1.2.toString()}c.noUiSlider.on("update",function(e,t){let i=b.getAttribute("aria-valuenow");i>50?m.style.top="120%":m.style.top="-10%"}),c.noUiSlider.on("slide",()=>{o.value=c.noUiSlider.get(),r.value=Number(1.2*o.value).toFixed(2),r.value>60?(r.value="",o.value="",a.style.visibility="visible",a.style.zIndex="0",a.style.bottom="-28px",c.noUiSlider.set(0)):(c.noUiSlider.set(value),d.style.visibility="hidden",d.style.zIndex="-1",d.style.bottom="0",a.style.visibility="hidden",a.style.zIndex="-1",a.style.bottom="0")}),o.addEventListener("input",function(){let e=this.value;if(!y.test(e)){this.value="",r.value="";return}isNaN(e=parseFloat(e.replace(",",".")))?this.value="":e>60&&(this.value="",r.value="",d.style.visibility="visible",d.style.zIndex="0",d.style.bottom="-28px",c.noUiSlider.set(0)),""===this.value?(r.value="",c.noUiSlider.set(0)):(r.value=(1.2*e).toFixed(2),r.value>60?(this.value="",r.value="",a.style.visibility="visible",a.style.zIndex="0",a.style.bottom="-28px",c.noUiSlider.set(0)):(c.noUiSlider.set(e),d.style.visibility="hidden",d.style.zIndex="-1",d.style.bottom="0",a.style.visibility="hidden",a.style.zIndex="-1",a.style.bottom="0"))}),r.addEventListener("input",function(){let e=this.value;if(!y.test(e)){this.value="",o.value="";return}e=parseFloat(e.replace(",",".")),console.log(e),isNaN(e)?this.value="":e>60&&(this.value="",o.value="",a.style.visibility="visible",a.style.zIndex="0",a.style.bottom="-28px",c.noUiSlider.set(0)),""===this.value?(o.value="",c.noUiSlider.set(0)):e/1.2>60?(this.value="",o.value="",d.style.visibility="visible",d.style.zIndex="0",d.style.bottom="-28px",c.noUiSlider.set(0)):(o.value=(e/1.2).toFixed(2),c.noUiSlider.set(o.value),d.style.visibility="hidden",d.style.zIndex="-1",d.style.bottom="0",a.style.visibility="hidden",a.style.zIndex="-1",a.style.bottom="0")}),x(),u.addEventListener("click",function(){let e={waterCount:o.value,waterPrice:r.value};console.log(e)}),v.addEventListener("click",e=>{e.preventDefault(),$.style.display="none",$.style.display="block"}),p.addEventListener("click",e=>{e.preventDefault(),$.style.display="none"})});</script></html>
+  v-32h32v-96h-32v-32h96v128h32V384z"
+                fill="#fcfcfc"
+              />
+            </g></svg
+        ></a>
+      </header>
+      <main class="flex flex-col justify-between px-2 pb-2" style="height: calc(100svh - 64px)">
+        <div class="relative mt-1">
+          <div class="card w-full flex flex-col gap-4 py-2 px-4 shadow-md mx-auto relative z-2 rounded-t-md">
+            <div class="w-full flex items-center justify-between">
+              <span class="store_chain text-[#fcfcfc]"></span><span class="text-[#fcfcfc]">Автомат №<span class="machine_number"></span></span>
+            </div>
+            <p class="address text-[#fcfcfc]"></p>
+            <div class="w-full flex items-baseline justify-between h-8">
+              <div><span class="water_name font-bold text-xl px-2 bg-[#fcfcfc] rounded-lg"></span></div>
+              <div><span class="water_price_in font-bold text-xl px-2 bg-[#fcfcfc] rounded-lg"></span><span class="text-[#fcfcfc]"> ₴/літр</span></div>
+            </div>
+          </div>
+          <div id="water_error" class="absolute left-0 w-full text-xl text-center bg-red-700 transition-all" style="z-index: -1; visibility: hidden; bottom: 0"><span class="text-white">Максимум 60 літр.</span></div>
+          <div id="water_price_error" class="absolute left-0 w-full text-xl text-center bg-red-700 transition-all" style="z-index: -1; visibility: hidden; bottom: 0"><span class="text-white">Максимум 60 грн.</span></div>
+        </div>
+        <form id="form" class="flex-auto flex justify-between items-center mt-[10%]">
+          <div class="flex flex-col items-start justify-between gap-[15svh]">
+            <div class="flex items-baseline py-[5%] px-4 w-full"><input id="water_input" type="text" min="0" max="60" step="0.1" inputmode="decimal" class="w-36 outline-none focus:outline-none text-center text-5xl px-1 max-[380px]:text-3xl font-bold text-md border-b-2 border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="00.00" /><span class="ml-2">літр.</span></div>
+            <div class="flex items-baseline py-[5%] px-4 w-full"><input id="water_input_price" type="text" min="0" max="60" step="0.1" inputmode="decimal" class="w-36 outline-none focus:outline-none text-center text-5xl px-1 max-[380px]:text-3xl font-bold text-md border-b-2 border-gray-400 focus:text-black flex items-center" name="water_input_price" placeholder="00.00" /><span class="ml-2">грн.</span></div>
+          </div>
+          <div class="flex flex-col w-full pr-2"><div id="slider" class="h-[50svh] w-6 mx-auto my-0"></div></div>
+        </form>
+        <button type="button" id="submit" class="block py-4 px-6 mt-5 w-full mx-auto text-center text-[#fcfcfc] active:bg-[#fcfcfc] active:text-[#1b1b1b] active:rounded-lg text-xl font-bold rounded-lg" style="background: linear-gradient(120deg, #82aeb4 30%, #cdcdcd 38%, #cdcdcd 40%, #82aeb4 48%); background-size: 200% 100%; background-position: 100% 0; animation: load 2s infinite">Сплатити</button>
+      </main>
+      <div id="info_popup" class="absolute top-0 left-0 rounded-lg bg-white text-center pt-10 pb-2 px-6 w-full h-screen h-[100svh] overflow-y-scroll z-20" style="display: none">
+        <div id="close_info_popup" class="absolute top-1 right-2 text-2xl font-bold cursor-pointer p-2">X</div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ab rerum veritatis, quo earum voluptates aliquid adipisci et laborum porro quae tempore! Similique saepe voluptate amet. Laboriosam veniam atque, corrupti quia, adipisci beatae eveniet iure laborum alias quod consequatur, nostrum voluptas non blanditiis libero! Qui autem fugit cumque excepturi esse recusandae modi voluptates sunt architecto maxime! Vitae facilis explicabo placeat unde rerum optio dolorem amet similique minima expedita iste, voluptates aliquam laborum debitis ad!
+      </div>
+    </div>
+  </body>
+  <script>
+    window.addEventListener("load", () => {
+      let e = document.querySelector(".store_chain"),
+        t = document.querySelector(".machine_number"),
+        i = document.querySelector(".address"),
+        l = document.querySelector(".water_name"),
+        n = document.querySelector(".water_price_in"),
+        s = document.getElementById("form"),
+        o = s.elements.water_input,
+        r = s.elements.water_input_price,
+        d = document.getElementById("water_error"),
+        a = document.getElementById("water_price_error"),
+        y = /^\d{0,}([,.]\d{0,2})?$/,
+        u = document.getElementById("submit"),
+        v = document.getElementById("open_info_popup"),
+        $ = document.getElementById("info_popup"),
+        p = document.getElementById("close_info_popup"),
+        c = document.getElementById("slider");
+      noUiSlider.create(c, { range: { min: [0, 0.1], "33.3%": [3, 0.5], "66.6%": [20, 1], max: [60] }, step: 1, start: [0], margin: 300, connect: [!0, !1], direction: "rtl", orientation: "vertical", behaviour: "tap-drag", tooltips: !0, pips: { mode: "range", stepped: !0, density: 1 } });
+      let b = c.querySelector(".noUi-handle"),
+        m = c.querySelector(".noUi-tooltip");
+      function x() {
+        (e.textContent = `ТМ "Тестова Назва"`), (t.textContent = "00"), (i.textContent = "м.Тестове, вул.Тестова, б.0"), (l.textContent = "Тестовий вид води"), (n.textContent = (1.2).toString());
+      }
+      c.noUiSlider.on("update", function (e, t) {
+        let i = b.getAttribute("aria-valuenow");
+        i > 50 ? (m.style.top = "120%") : (m.style.top = "-10%");
+      }),
+        c.noUiSlider.on("slide", () => {
+          (o.value = c.noUiSlider.get()), (r.value = Number(1.2 * o.value).toFixed(2)), r.value > 60 ? ((r.value = ""), (o.value = ""), (a.style.visibility = "visible"), (a.style.zIndex = "0"), (a.style.bottom = "-28px"), c.noUiSlider.set(0)) : (c.noUiSlider.set(value), (d.style.visibility = "hidden"), (d.style.zIndex = "-1"), (d.style.bottom = "0"), (a.style.visibility = "hidden"), (a.style.zIndex = "-1"), (a.style.bottom = "0"));
+        }),
+        o.addEventListener("input", function () {
+          let e = this.value;
+          if (!y.test(e)) {
+            (this.value = ""), (r.value = "");
+            return;
+          }
+          isNaN((e = parseFloat(e.replace(",", ".")))) ? (this.value = "") : e > 60 && ((this.value = ""), (r.value = ""), (d.style.visibility = "visible"), (d.style.zIndex = "0"), (d.style.bottom = "-28px"), c.noUiSlider.set(0)), "" === this.value ? ((r.value = ""), c.noUiSlider.set(0)) : ((r.value = (1.2 * e).toFixed(2)), r.value > 60 ? ((this.value = ""), (r.value = ""), (a.style.visibility = "visible"), (a.style.zIndex = "0"), (a.style.bottom = "-28px"), c.noUiSlider.set(0)) : (c.noUiSlider.set(e), (d.style.visibility = "hidden"), (d.style.zIndex = "-1"), (d.style.bottom = "0"), (a.style.visibility = "hidden"), (a.style.zIndex = "-1"), (a.style.bottom = "0")));
+        }),
+        r.addEventListener("input", function () {
+          let e = this.value;
+          if (!y.test(e)) {
+            (this.value = ""), (o.value = "");
+            return;
+          }
+          (e = parseFloat(e.replace(",", "."))), console.log(e), isNaN(e) ? (this.value = "") : e > 60 && ((this.value = ""), (o.value = ""), (a.style.visibility = "visible"), (a.style.zIndex = "0"), (a.style.bottom = "-28px"), c.noUiSlider.set(0)), "" === this.value ? ((o.value = ""), c.noUiSlider.set(0)) : e / 1.2 > 60 ? ((this.value = ""), (o.value = ""), (d.style.visibility = "visible"), (d.style.zIndex = "0"), (d.style.bottom = "-28px"), c.noUiSlider.set(0)) : ((o.value = (e / 1.2).toFixed(2)), c.noUiSlider.set(o.value), (d.style.visibility = "hidden"), (d.style.zIndex = "-1"), (d.style.bottom = "0"), (a.style.visibility = "hidden"), (a.style.zIndex = "-1"), (a.style.bottom = "0"));
+        }),
+        x(),
+        u.addEventListener("click", function () {
+          let e = { waterCount: o.value, waterPrice: r.value };
+          console.log(e);
+        }),
+        v.addEventListener("click", (e) => {
+          e.preventDefault(), ($.style.display = "none"), ($.style.display = "block");
+        }),
+        p.addEventListener("click", (e) => {
+          e.preventDefault(), ($.style.display = "none");
+        });
+    });
+  </script>
+</html>
