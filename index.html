@@ -46,6 +46,9 @@
         top: -10%;
         right: 130%;
       }
+      .noUi-connect {
+        background: #82aeb4;
+      }
       .card {
         background: linear-gradient(120deg, #82aeb4 30%, #cdcdcd 38%, #cdcdcd 40%, #82aeb4 48%);
         background-size: 200% 100%;
@@ -103,7 +106,7 @@
           </div>
         </div>
 
-        <form class="flex-auto flex justify-between items-center mt-2">
+        <form id="form" class="flex-auto flex justify-between items-center mt-2">
           <div class="flex flex-col items-start justify-between gap-[15svh]">
             <div class="flex items-baseline py-[5%] px-4 w-full">
               <input id="water_input" type="text" min="0" max="60" step="0.1" inputmode="decimal" class="w-36 outline-none focus:outline-none text-center text-5xl px-1 max-[380px]:text-3xl font-bold text-md border-b-2 border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="00.00" />
@@ -115,7 +118,7 @@
             </div>
           </div>
           <div class="flex flex-col w-full pr-2">
-            <div id="slider" class="h-[50svh] w-6 border-none bg-[#cdcdcd] mx-auto my-0"></div>
+            <div id="slider" class="h-[50svh] w-6 mx-auto my-0"></div>
           </div>
         </form>
 
@@ -136,14 +139,16 @@
       const address = document.querySelector(".address");
       const waterName = document.querySelector(".water_name");
       const waterPriceIn = document.querySelector(".water_price_in");
-      const waterPrice = 1.2;
-      const regex = /^\d*\.?\d{0,2}$/;
 
-      const waterInput = document.getElementById("water_input");
-      const waterInputPrice = document.getElementById("water_input_price");
+      const form = document.getElementById("form");
+      const waterInput = form.elements["water_input"];
+      const waterInputPrice = form.elements["water_input_price"];
+
       const waterError = document.getElementById("water_error");
       const waterPriceError = document.getElementById("water_price_error");
+      const waterPrice = 1.2;
       const max = 60;
+      const regex = /^\d{0,}([,.]\d{0,2})?$/;
 
       const submitBtn = document.getElementById("submit");
 
@@ -151,7 +156,7 @@
       const infoPopup = document.getElementById("info_popup");
       const closeInfoPopup = document.getElementById("close_info_popup");
 
-      var rangeInput = document.getElementById("slider");
+      const rangeInput = document.getElementById("slider");
 
       noUiSlider.create(rangeInput, {
         range: {
@@ -163,7 +168,7 @@
         step: 1,
         start: [0],
         margin: 300,
-        connect: true,
+        connect: [true, false],
         direction: "rtl",
         orientation: "vertical",
         behaviour: "tap-drag",
@@ -187,13 +192,13 @@
       });
 
       waterInput.addEventListener("input", function () {
-        let value = this.value.replace(/[^\d.]/g, "");
+        let value = this.value;
         if (!regex.test(value)) {
           this.value = "";
           waterInputPrice.value = "";
           return;
         }
-        value = parseFloat(value);
+        value = parseFloat(value.replace(",", "."));
         if (isNaN(value)) {
           this.value = "";
         } else if (value > max) {
@@ -220,13 +225,14 @@
       });
 
       waterInputPrice.addEventListener("input", function () {
-        let value = this.value.replace(/[^\d.]/g, "");
+        let value = this.value;
         if (!regex.test(value)) {
           this.value = "";
           waterInput.value = "";
           return;
         }
-        value = parseFloat(value);
+        value = parseFloat(value.replace(",", "."));
+        console.log(value);
         if (isNaN(value)) {
           this.value = "";
         } else if (value > max) {
@@ -262,11 +268,11 @@
       });
 
       function setInfo() {
-        storeChain.innerHTML = `ТМ "Тестова Назва"`;
-        machineNumber.innerHTML = "00";
-        address.innerHTML = "м.Тестове, вул.Тестова, б.0";
-        waterName.innerHTML = "Тестовий вид води";
-        waterPriceIn.innerHTML = waterPrice.toString();
+        storeChain.textContent = `ТМ "Тестова Назва"`;
+        machineNumber.textContent = "00";
+        address.textContent = "м.Тестове, вул.Тестова, б.0";
+        waterName.textContent = "Тестовий вид води";
+        waterPriceIn.textContent = waterPrice.toString();
       }
 
       setInfo();
