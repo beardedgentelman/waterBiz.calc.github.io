@@ -43,11 +43,11 @@
         display: none;
       }
       .noUi-vertical .noUi-tooltip {
-        top: -10%;
         right: 130%;
       }
       .noUi-connect {
-        background: #82aeb4;
+        /* background: #82aeb4; */
+        background: url("./bubbles.gif") no-repeat bottom / cover;
       }
       .card {
         background: linear-gradient(120deg, #82aeb4 30%, #cdcdcd 38%, #cdcdcd 40%, #82aeb4 48%);
@@ -82,8 +82,8 @@
           </svg>
         </a>
       </header>
-      <main class="flex flex-col justify-between p-2" style="height: calc(100svh - 64px)">
-        <div class="relative mt-2">
+      <main class="flex flex-col justify-between px-2 pb-2" style="height: calc(100svh - 64px)">
+        <div class="relative mt-1">
           <div class="card w-full flex flex-col gap-4 py-2 px-4 shadow-md mx-auto relative z-2 rounded-t-md">
             <div class="w-full flex items-center justify-between">
               <span class="store_chain text-[#fcfcfc]"></span>
@@ -106,7 +106,7 @@
           </div>
         </div>
 
-        <form id="form" class="flex-auto flex justify-between items-center mt-2">
+        <form id="form" class="flex-auto flex justify-between items-center mt-[5%]">
           <div class="flex flex-col items-start justify-between gap-[15svh]">
             <div class="flex items-baseline py-[5%] px-4 w-full">
               <input id="water_input" type="text" min="0" max="60" step="0.1" inputmode="decimal" class="w-36 outline-none focus:outline-none text-center text-5xl px-1 max-[380px]:text-3xl font-bold text-md border-b-2 border-gray-400 focus:text-black flex items-center" name="water_input" placeholder="00.00" />
@@ -178,6 +178,18 @@
           stepped: true,
           density: 1,
         },
+      });
+
+      const handle = rangeInput.querySelector(".noUi-handle");
+      const tooltip = rangeInput.querySelector(".noUi-tooltip");
+
+      rangeInput.noUiSlider.on("update", function (values, handleIndex) {
+        const ariaValueNow = handle.getAttribute("aria-valuenow");
+        if (ariaValueNow > 50) {
+          tooltip.style.top = "120%";
+        } else {
+          tooltip.style.top = "-10%";
+        }
       });
 
       rangeInput.noUiSlider.on("slide", () => {
